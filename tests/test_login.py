@@ -51,3 +51,18 @@ class TestLoginPage():
         self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"password\"]").send_keys("secret_sauce")
         self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"login-button\"]").click()
         assert self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"error\"]").text == "Epic sadface: Sorry, this user has been locked out."
+
+
+    def test_login_avec_mot_de_passe_incorrect(self):
+        """
+        Vérifie qu'un message d'erreur s'affiche avec un mot de passe incorrect
+        """
+
+        username = self.trouver_element_cliquable("*[data-test='username']")
+        username.send_keys("standard_user")
+        password = self.trouver_element_cliquable("*[data-test='password']")
+        password.send_keys("mauvais_password")
+        login_btn = self.trouver_element_cliquable("*[data-test='login-button']")
+        login_btn.click()
+        error_msg = self.trouver_element_visible("*[data-test='error']")
+        assert "Username and password do not match" in error_msg.text

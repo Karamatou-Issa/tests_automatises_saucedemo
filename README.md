@@ -35,10 +35,9 @@ pytest tests/test_login.py -v
 ### Tests de connexion (test_login.py)
 - ✅ Connexion avec identifiants valides
 - ✅ Connexion avec utilisateur bloqué
-- ✅ Connexion avec mot de passe incorrect
 
 ## 📊 Résultats
-- 3 tests automatisés
+- 2 tests automatisés
 - Couverture : Fonctionnalité de login
 - Taux de réussite : 100%
 
